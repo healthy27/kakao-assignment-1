@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Vanilla</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="todo-app">
+    <section class="todo-panel">
+      <h1>Todo</h1>
+
+      <div class="date-view">
+        <button id="prev-date-button" type="button" aria-label="이전 날짜">이전</button>
+        <strong id="selected-date-text"></strong>
+        <button id="next-date-button" type="button" aria-label="다음 날짜">다음</button>
+      </div>
+
+      <form id="todo-form" class="todo-form">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="할 일을 입력하세요"
+          autocomplete="off"
+        >
+        <button type="submit">추가</button>
+      </form>
+
+      <p id="message" class="message" aria-live="polite"></p>
+
+      <div class="filter-tabs" aria-label="Todo 상태 필터">
+        <button class="filter-button active" type="button" data-filter="all">전체</button>
+        <button class="filter-button" type="button" data-filter="active">진행 중</button>
+        <button class="filter-button" type="button" data-filter="completed">완료</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
