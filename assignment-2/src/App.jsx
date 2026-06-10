@@ -75,7 +75,6 @@ function App() {
     <main className="min-h-screen bg-app-bg px-4 py-6 text-text-primary sm:px-6 lg:px-8">
       <section className="mx-auto flex w-full max-w-4xl flex-col gap-6 rounded-card border border-border bg-surface p-5 shadow-floating sm:p-8">
         <header className="flex flex-col gap-3 border-b border-border pb-6">
-          <Badge>React Todo</Badge>
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <h1 className="text-4xl font-black tracking-tight text-text-primary sm:text-5xl">
@@ -86,7 +85,7 @@ function App() {
                 하루의 작업을 관리합니다.
               </p>
             </div>
-            <Badge className="self-start md:self-auto" variant="dark">
+            <Badge className="self-start md:self-auto" variant="solid">
               {counts[TODO_FILTERS.ACTIVE]}개 진행 중
             </Badge>
           </div>

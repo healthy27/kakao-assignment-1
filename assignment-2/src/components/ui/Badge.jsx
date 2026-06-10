@@ -1,6 +1,6 @@
 const VARIANT_CLASSES = {
   brand: 'bg-brand-light text-brand',
-  dark: 'bg-text-primary text-white',
+  solid: 'bg-brand text-white',
   success: 'bg-success-light text-success',
   danger: 'bg-danger-light text-danger',
 }

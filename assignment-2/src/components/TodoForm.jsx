@@ -21,7 +21,7 @@ function TodoForm({ onAddTodo, selectedDate }) {
   }
 
   return (
-    <form className="rounded-card bg-text-primary p-4" onSubmit={handleSubmit}>
+    <form className="rounded-card bg-brand p-4" onSubmit={handleSubmit}>
       <label
         htmlFor="todo-input"
         className="mb-3 block text-sm font-bold text-surface"
