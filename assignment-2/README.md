@@ -16,13 +16,15 @@ Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 �
 
 ### Required
 
-- Todo 생성, 조회, 수정, 삭제
-- 빈 입력값 제출 시 안내 메시지 표시
-- `prompt()` 대신 인라인 수정 UI 사용
-- 전체, 진행 중, 완료 상태 필터링
-- 선택 날짜 기준 일간 Todo 보기
-- Todo 변경사항 `localStorage` 저장
-- 새로고침 후 Todo 데이터 유지
+- [x] Todo 생성, 조회, 수정, 삭제
+- [x] 빈 입력값 제출 시 안내 메시지 표시
+- [x] `prompt()` 대신 인라인 수정 UI 사용
+- [x] 전체, 진행 중, 완료 상태 필터링
+- [x] 선택 날짜 기준 일간 Todo 보기
+- [x] Todo 변경사항 `localStorage` 저장
+- [x] 새로고침 후 Todo 데이터 유지
+- [x] GitHub Actions CI 구성
+- [x] 디자인 토큰 기반 UI 리팩터링
 
 ### Optional - Not Implemented
 
@@ -45,6 +47,23 @@ Todo 데이터는 아래 형태를 기준으로 사용합니다.
   createdAt: number
 }
 ```
+
+## Key Decisions
+
+- `App.jsx`가 `todos`, `filter`, `selectedDate` 상태를 소유합니다.
+- 입력 상태와 수정 상태처럼 특정 UI에만 필요한 상태는 해당 컴포넌트 내부에 둡니다.
+- localStorage 접근은 `useLocalStorage` 훅으로 분리합니다.
+- 날짜 계산은 `utils/date.js`의 순수 함수로 분리합니다.
+- 필터 값과 storage key는 `constants/todo.js`에서 관리합니다.
+- 색상, radius, shadow는 Tailwind `@theme` token에서 관리합니다.
+
+## Design Direction
+
+Toss 느낌의 블루, 그레이, 화이트 중심 UI로 정리했습니다.
+
+- 면 색상은 검은색 계열을 사용하지 않고 브랜드 블루와 neutral gray를 사용합니다.
+- JSX에 raw hex 값을 직접 쓰지 않고 `bg-brand`, `text-text-primary`, `rounded-card`, `shadow-card` 같은 의미 기반 class를 사용합니다.
+- 반복되는 버튼과 배지는 `components/ui/Button.jsx`, `components/ui/Badge.jsx`로 조합합니다.
 
 ## Project Structure
 
@@ -94,3 +113,12 @@ npm run dev
 ```
 
 개발 서버는 기본적으로 `http://localhost:5173`에서 실행됩니다.
+
+## Validation
+
+```bash
+npm run lint
+npm run build
+```
+
+GitHub Actions에서도 push와 pull request 시 `npm ci`, `npm run lint`, `npm run build`를 실행합니다.
