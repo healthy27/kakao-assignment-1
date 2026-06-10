@@ -51,6 +51,9 @@ Todo 데이터는 아래 형태를 기준으로 사용합니다.
 ```txt
 src/
   components/
+    ui/
+      Badge.jsx
+      Button.jsx
     DateNavigator.jsx
     FilterTabs.jsx
     TodoForm.jsx
@@ -78,6 +81,7 @@ src/
 - YAGNI: 라우터, 서버 API 계층, 전역 상태 라이브러리는 필요해질 때 도입합니다.
 - SRP: 컴포넌트는 하나의 UI 책임을 중심으로 분리합니다.
 - SSOT: 필터 값, 날짜 포맷, storage key는 상수와 유틸에서 관리합니다.
+- Design Tokens: 색상, radius, shadow는 Tailwind `@theme` token으로 관리합니다.
 - SOLID: 과한 추상화보다 변경 가능성이 높은 책임을 분리하는 데 집중합니다.
 
 ## Development

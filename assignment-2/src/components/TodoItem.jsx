@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from './ui/Button'
 
 function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
   const [isEditing, setIsEditing] = useState(false)
@@ -33,14 +34,14 @@ function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
   }
 
   return (
-    <li className="rounded-3xl border border-[#e5d7bd] bg-[#fffdf7] p-4 shadow-[0_12px_32px_rgba(80,65,35,0.08)]">
+    <li className="rounded-card border border-border bg-surface p-4 shadow-card">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
         <button
           type="button"
-          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 text-sm font-black transition focus:outline-none focus:ring-2 focus:ring-[#94733a] ${
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-pill border-2 text-sm font-black transition focus:outline-none focus:ring-4 focus:ring-brand/20 ${
             todo.completed
-              ? 'border-[#557153] bg-[#557153] text-white'
-              : 'border-[#b8a57e] bg-white text-transparent hover:border-[#557153]'
+              ? 'border-success bg-success text-white'
+              : 'border-border-strong bg-surface text-transparent hover:border-brand'
           }`}
           aria-label={todo.completed ? '완료 취소' : '완료 처리'}
           onClick={() => onToggleTodo(todo.id)}
@@ -53,7 +54,7 @@ function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
             <form className="grid gap-3" onSubmit={handleSubmitEdit}>
               <input
                 type="text"
-                className="min-h-11 rounded-2xl border border-[#c7b489] bg-white px-4 text-base font-semibold text-[#202217] outline-none focus:ring-2 focus:ring-[#94733a]"
+                className="min-h-12 rounded-control border border-border bg-surface px-4 text-base font-semibold text-text-primary outline-none focus:border-brand focus:ring-4 focus:ring-brand/20"
                 value={editText}
                 onChange={(event) => {
                   setEditText(event.target.value)
@@ -62,32 +63,25 @@ function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
                 autoFocus
               />
               {errorMessage && (
-                <p className="rounded-2xl bg-[#fff0ba] px-4 py-2 text-sm font-bold text-[#7b3d22]">
+                <p className="rounded-control bg-danger-light px-4 py-2 text-sm font-bold text-danger">
                   {errorMessage}
                 </p>
               )}
               <div className="flex flex-wrap gap-2">
-                <button
-                  type="submit"
-                  className="rounded-xl bg-[#202217] px-4 py-2 text-sm font-bold text-[#fff7dd] transition hover:bg-[#3d412d]"
-                >
+                <Button size="sm" type="submit" variant="primary">
                   저장
-                </button>
-                <button
-                  type="button"
-                  className="rounded-xl border border-[#c7b489] px-4 py-2 text-sm font-bold text-[#6f6248] transition hover:bg-[#f7efd9]"
-                  onClick={handleCancelEdit}
-                >
+                </Button>
+                <Button size="sm" onClick={handleCancelEdit}>
                   취소
-                </button>
+                </Button>
               </div>
             </form>
           ) : (
             <p
               className={`break-words text-lg font-bold leading-7 ${
                 todo.completed
-                  ? 'text-[#8d856f] line-through decoration-2'
-                  : 'text-[#202217]'
+                  ? 'text-text-tertiary line-through decoration-2'
+                  : 'text-text-primary'
               }`}
             >
               {todo.text}
@@ -97,20 +91,16 @@ function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
 
         {!isEditing && (
           <div className="flex shrink-0 flex-wrap gap-2">
-            <button
-              type="button"
-              className="rounded-xl border border-[#c7b489] px-4 py-2 text-sm font-bold text-[#6f6248] transition hover:bg-[#f7efd9]"
-              onClick={handleStartEdit}
-            >
+            <Button size="sm" onClick={handleStartEdit}>
               수정
-            </button>
-            <button
-              type="button"
-              className="rounded-xl bg-[#d95f43] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#bf4c32]"
+            </Button>
+            <Button
+              size="sm"
+              variant="danger"
               onClick={() => onDeleteTodo(todo.id)}
             >
               삭제
-            </button>
+            </Button>
           </div>
         )}
       </div>

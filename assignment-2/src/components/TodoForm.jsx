@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from './ui/Button'
 
 function TodoForm({ onAddTodo, selectedDate }) {
   const [text, setText] = useState('')
@@ -20,18 +21,18 @@ function TodoForm({ onAddTodo, selectedDate }) {
   }
 
   return (
-    <form className="rounded-3xl bg-[#202217] p-4" onSubmit={handleSubmit}>
+    <form className="rounded-card bg-text-primary p-4" onSubmit={handleSubmit}>
       <label
         htmlFor="todo-input"
-        className="mb-3 block text-sm font-bold text-[#f4ddb1]"
+        className="mb-3 block text-sm font-bold text-surface"
       >
         {selectedDate}에 추가할 Todo
       </label>
-      <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           id="todo-input"
           type="text"
-          className="min-h-12 rounded-2xl border border-transparent bg-[#fffaf0] px-4 text-base font-semibold text-[#202217] outline-none transition placeholder:text-[#a09379] focus:border-[#f4ddb1] focus:ring-2 focus:ring-[#f4ddb1]"
+          className="min-h-12 flex-1 rounded-control border border-transparent bg-surface px-4 text-base font-semibold text-text-primary outline-none transition placeholder:text-text-tertiary focus:border-brand focus:ring-4 focus:ring-brand/20"
           placeholder="예: React 컴포넌트 분리하기"
           value={text}
           onChange={(event) => {
@@ -39,15 +40,12 @@ function TodoForm({ onAddTodo, selectedDate }) {
             setErrorMessage('')
           }}
         />
-        <button
-          type="submit"
-          className="min-h-12 rounded-2xl bg-[#f0b84b] px-6 text-base font-black text-[#202217] transition hover:-translate-y-0.5 hover:bg-[#ffc95a] focus:outline-none focus:ring-2 focus:ring-[#fff0ba]"
-        >
+        <Button size="lg" type="submit" variant="primary">
           추가
-        </button>
+        </Button>
       </div>
       {errorMessage && (
-        <p className="mt-3 rounded-2xl bg-[#fff0ba] px-4 py-3 text-sm font-bold text-[#7b3d22]">
+        <p className="mt-3 rounded-control bg-danger-light px-4 py-3 text-sm font-bold text-danger">
           {errorMessage}
         </p>
       )}

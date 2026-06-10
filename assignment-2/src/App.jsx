@@ -3,6 +3,7 @@ import DateNavigator from './components/DateNavigator'
 import FilterTabs from './components/FilterTabs'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
+import Badge from './components/ui/Badge'
 import { TODO_FILTERS, TODO_STORAGE_KEY } from './constants/todo'
 import useLocalStorage from './hooks/useLocalStorage'
 import { addDays, getToday } from './utils/date'
@@ -71,25 +72,23 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f3efe5] px-4 py-6 text-[#1f211c] sm:px-6 lg:px-8">
-      <section className="mx-auto flex w-full max-w-4xl flex-col gap-6 rounded-[2rem] border border-[#d8cdb8] bg-[#fffaf0]/95 p-5 shadow-[0_24px_80px_rgba(78,66,44,0.18)] sm:p-8">
-        <header className="flex flex-col gap-3 border-b border-[#e2d8c4] pb-6">
-          <p className="text-sm font-semibold tracking-[0.3em] text-[#90703b] uppercase">
-            React Todo
-          </p>
+    <main className="min-h-screen bg-app-bg px-4 py-6 text-text-primary sm:px-6 lg:px-8">
+      <section className="mx-auto flex w-full max-w-4xl flex-col gap-6 rounded-card border border-border bg-surface p-5 shadow-floating sm:p-8">
+        <header className="flex flex-col gap-3 border-b border-border pb-6">
+          <Badge>React Todo</Badge>
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <h1 className="text-4xl font-black tracking-[-0.04em] text-[#202217] sm:text-5xl">
+              <h1 className="text-4xl font-black tracking-tight text-text-primary sm:text-5xl">
                 오늘 할 일 정리
               </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#68604f] sm:text-base">
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-text-secondary sm:text-base">
                 날짜를 이동하며 Todo를 추가하고, 상태 필터와 인라인 수정으로
                 하루의 작업을 관리합니다.
               </p>
             </div>
-            <div className="rounded-2xl bg-[#202217] px-4 py-3 text-sm font-semibold text-[#fff7dd]">
+            <Badge className="self-start md:self-auto" variant="dark">
               {counts[TODO_FILTERS.ACTIVE]}개 진행 중
-            </div>
+            </Badge>
           </div>
         </header>
 

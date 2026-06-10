@@ -8,7 +8,7 @@ const FILTER_OPTIONS = [
 
 function FilterTabs({ filter, counts, onChangeFilter }) {
   return (
-    <div className="grid grid-cols-3 gap-2 rounded-3xl bg-[#e9ddc4] p-2">
+    <div className="grid grid-cols-3 gap-2 rounded-card bg-surface-alt p-2">
       {FILTER_OPTIONS.map((filterOption) => {
         const isSelected = filter === filterOption
 
@@ -16,10 +16,10 @@ function FilterTabs({ filter, counts, onChangeFilter }) {
           <button
             key={filterOption}
             type="button"
-            className={`rounded-2xl px-3 py-3 text-sm font-extrabold transition focus:outline-none focus:ring-2 focus:ring-[#94733a] ${
+            className={`rounded-control px-3 py-3 text-sm font-extrabold transition focus:outline-none focus:ring-4 focus:ring-brand/20 ${
               isSelected
-                ? 'bg-[#202217] text-[#fff7dd] shadow-md'
-                : 'bg-transparent text-[#6f6248] hover:bg-[#fff7e6]'
+                ? 'bg-brand text-white shadow-card'
+                : 'bg-transparent text-text-secondary hover:bg-surface'
             }`}
             onClick={() => onChangeFilter(filterOption)}
           >

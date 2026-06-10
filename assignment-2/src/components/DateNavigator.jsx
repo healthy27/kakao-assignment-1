@@ -1,45 +1,31 @@
 import { formatKoreanDate, isToday } from '../utils/date'
+import Badge from './ui/Badge'
+import Button from './ui/Button'
 
 function DateNavigator({ selectedDate, onMoveDate, onToday }) {
   return (
-    <section className="grid gap-3 rounded-3xl border border-[#e3d6bd] bg-[#f7efd9] p-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
-      <button
-        type="button"
-        className="rounded-2xl border border-[#c7b489] bg-white px-4 py-3 text-sm font-bold text-[#4b412e] transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#94733a]"
-        onClick={() => onMoveDate(-1)}
-      >
+    <section className="flex flex-col gap-3 rounded-card border border-border bg-surface-alt p-4 sm:flex-row sm:items-center">
+      <Button className="sm:w-auto" onClick={() => onMoveDate(-1)}>
         이전 날짜
-      </button>
+      </Button>
 
-      <div className="text-center">
-        <p className="text-sm font-semibold text-[#8a6c35]">
+      <div className="flex-1 text-center">
+        <p className="text-sm font-semibold text-text-secondary">
           선택된 날짜
-          {isToday(selectedDate) && (
-            <span className="ml-2 rounded-full bg-[#d95f43] px-2 py-1 text-xs text-white">
-              오늘
-            </span>
-          )}
+          {isToday(selectedDate) && <Badge className="ml-2">오늘</Badge>}
         </p>
-        <p className="mt-1 text-2xl font-black tracking-[-0.03em] text-[#202217]">
+        <p className="mt-1 text-2xl font-black tracking-tight text-text-primary">
           {formatKoreanDate(selectedDate)}
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-2 sm:flex">
-        <button
-          type="button"
-          className="rounded-2xl border border-[#c7b489] bg-white px-4 py-3 text-sm font-bold text-[#4b412e] transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#94733a]"
-          onClick={onToday}
-        >
+        <Button variant="subtle" onClick={onToday}>
           오늘
-        </button>
-        <button
-          type="button"
-          className="rounded-2xl border border-[#c7b489] bg-white px-4 py-3 text-sm font-bold text-[#4b412e] transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#94733a]"
-          onClick={() => onMoveDate(1)}
-        >
+        </Button>
+        <Button onClick={() => onMoveDate(1)}>
           다음 날짜
-        </button>
+        </Button>
       </div>
     </section>
   )
