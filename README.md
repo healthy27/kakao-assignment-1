@@ -1,6 +1,6 @@
 # Assignment 2 - React Todo
 
-Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 마이그레이션하는 2주차 과제입니다.
+Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 마이그레이션하는 2주차 과제
 
 ## Tech Stack
 
@@ -32,7 +32,7 @@ Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 �
 
 ## Todo Data Model
 
-Todo 데이터는 아래 형태를 기준으로 사용합니다.
+Todo 데이터는 아래 형태를 기준으로 사용
 
 ```js
 {
@@ -61,12 +61,12 @@ src/
 
 ## Design Principles
 
-- KISS: 현재 과제에 필요한 구조만 유지합니다.
-- YAGNI: 라우터, 서버 API 계층, 전역 상태 라이브러리는 필요해질 때 도입합니다.
-- SRP: 컴포넌트는 하나의 UI 책임을 중심으로 분리합니다.
-- SSOT: 필터 값, 날짜 포맷, storage key는 상수와 유틸에서 관리합니다.
-- SOLID: 과한 추상화보다 변경 가능성이 높은 책임을 분리하는 데 집중합니다.
-
+- KISS: 현재 과제에 필요한 구조만 유지
+- YAGNI: 라우터, 서버 API 계층, 전역 상태 라이브러리는 필요해질 때 도입
+- SRP: 컴포넌트는 하나의 UI 책임을 중심으로 분리
+- SSOT: 필터 값, 날짜 포맷, storage key는 상수와 유틸에서 관리
+- SOLID: 과한 추상화보다 변경 가능성이 높은 책임을 분리하는 데 집중
+  
 ## Development
 
 ```bash
@@ -74,4 +74,4 @@ npm install
 npm run dev
 ```
 
-개발 서버는 기본적으로 `http://localhost:5173`에서 실행됩니다.
+개발 서버는 기본적으로 `http://localhost:5173`에서 실행
