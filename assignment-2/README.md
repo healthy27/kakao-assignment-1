@@ -12,6 +12,8 @@ Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 �
 
 ## Scope
 
+이번 구현 범위는 과제의 필수 미션입니다. 도전 미션인 주간 뷰는 범위 확장을 막기 위해 제외했습니다.
+
 ### Required
 
 - Todo 생성, 조회, 수정, 삭제
@@ -22,7 +24,7 @@ Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 �
 - Todo 변경사항 `localStorage` 저장
 - 새로고침 후 Todo 데이터 유지
 
-### Optional
+### Optional - Not Implemented
 
 - 주간 날짜 목록 표시
 - 이전 주차, 다음 주차 이동
@@ -49,9 +51,15 @@ Todo 데이터는 아래 형태를 기준으로 사용합니다.
 ```txt
 src/
   components/
+    DateNavigator.jsx
+    FilterTabs.jsx
+    TodoForm.jsx
+    TodoItem.jsx
+    TodoList.jsx
   constants/
     todo.js
   hooks/
+    useLocalStorage.js
   utils/
     date.js
   App.jsx
