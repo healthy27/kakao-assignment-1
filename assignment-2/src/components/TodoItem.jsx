@@ -33,25 +33,49 @@ function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
     setErrorMessage('')
   }
 
+  const handleToggleByItem = () => {
+    if (!isEditing) {
+      onToggleTodo(todo.id)
+    }
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      handleToggleByItem()
+    }
+  }
+
   return (
-    <li className="rounded-card border border-border bg-surface p-4 shadow-card">
+    <li
+      className={`rounded-card border border-border bg-surface p-4 shadow-card transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-floating ${
+        isEditing ? '' : 'cursor-pointer'
+      }`}
+      role={isEditing ? undefined : 'button'}
+      tabIndex={isEditing ? undefined : 0}
+      aria-pressed={isEditing ? undefined : todo.completed}
+      onClick={handleToggleByItem}
+      onKeyDown={isEditing ? undefined : handleKeyDown}
+    >
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-        <button
-          type="button"
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-pill border-2 text-sm font-black transition focus:outline-none focus:ring-4 focus:ring-brand/20 ${
+        <span
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-pill border-2 text-sm font-black transition ${
             todo.completed
               ? 'border-success bg-success text-white'
               : 'border-border-strong bg-surface text-transparent hover:border-brand'
           }`}
-          aria-label={todo.completed ? '완료 취소' : '완료 처리'}
-          onClick={() => onToggleTodo(todo.id)}
+          aria-hidden="true"
         >
           ✓
-        </button>
+        </span>
 
         <div className="min-w-0 flex-1 text-left">
           {isEditing ? (
-            <form className="grid gap-3" onSubmit={handleSubmitEdit}>
+            <form
+              className="grid gap-3"
+              onClick={(event) => event.stopPropagation()}
+              onSubmit={handleSubmitEdit}
+            >
               <input
                 type="text"
                 className="min-h-12 rounded-control border border-border bg-surface px-4 text-base font-semibold text-text-primary outline-none focus:border-brand focus:ring-4 focus:ring-brand/20"
@@ -90,7 +114,10 @@ function TodoItem({ todo, onToggleTodo, onUpdateTodo, onDeleteTodo }) {
         </div>
 
         {!isEditing && (
-          <div className="flex shrink-0 flex-wrap gap-2">
+          <div
+            className="flex shrink-0 flex-wrap gap-2"
+            onClick={(event) => event.stopPropagation()}
+          >
             <Button size="sm" onClick={handleStartEdit}>
               수정
             </Button>
