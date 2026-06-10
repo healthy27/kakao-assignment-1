@@ -10,10 +10,6 @@ Vanilla JavaScript로 구현한 Todo 앱을 React Function Component 구조로 �
 - JavaScript
 - Web Storage API (`localStorage`)
 
-## Scope
-
-이번 구현 범위는 과제의 필수 미션입니다. 도전 미션인 주간 뷰는 범위 확장을 막기 위해 제외했습니다.
-
 ### Required
 
 - [x] Todo 생성, 조회, 수정, 삭제
