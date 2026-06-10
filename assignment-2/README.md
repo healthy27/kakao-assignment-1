@@ -74,6 +74,8 @@ src/
 
 - [Architecture](./docs/architecture.md): 프로젝트 경계, 상태 소유권, 의존성 규칙을 정리합니다.
 - [AI Workflow](./docs/ai-workflow.md): AI 활용 방식, 제약 조건, 검증 기준을 정리합니다.
+- [Plan](./docs/plan.md): 구현 전 목표, 범위, 제약, 검증 기준을 정리합니다.
+- [Refactoring Strategy](./docs/refactoring-strategy.md): 구현 후 구조 개선 기준과 AI 리뷰 프롬프트를 정리합니다.
 
 ## Design Principles
 
