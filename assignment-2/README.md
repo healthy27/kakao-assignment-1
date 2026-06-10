@@ -67,6 +67,11 @@ src/
   index.css
 ```
 
+## Documentation
+
+- [Architecture](./docs/architecture.md): 프로젝트 경계, 상태 소유권, 의존성 규칙을 정리합니다.
+- [AI Workflow](./docs/ai-workflow.md): AI 활용 방식, 제약 조건, 검증 기준을 정리합니다.
+
 ## Design Principles
 
 - KISS: 현재 과제에 필요한 구조만 유지합니다.
