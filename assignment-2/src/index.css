@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "SUIT", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+
+  --color-app-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f2f4f6;
+  --color-surface-blue: #e8f3ff;
+  --color-border: #e5e8eb;
+  --color-border-strong: #d1d6db;
+  --color-text-primary: #191f28;
+  --color-text-secondary: #4e5968;
+  --color-text-tertiary: #8b95a1;
+  --color-brand: #3182f6;
+  --color-brand-hover: #1b64da;
+  --color-brand-light: #e8f3ff;
+  --color-danger: #f04452;
+  --color-danger-hover: #d92d3d;
+  --color-danger-light: #fff0f1;
+  --color-success: #00a661;
+  --color-success-light: #e8f8ef;
+  --color-warning-light: #fff6e0;
+  --color-warning-text: #8f5b00;
+
+  --radius-card: 1.75rem;
+  --radius-panel: 1.25rem;
+  --radius-control: 1rem;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 16px 44px rgb(25 31 40 / 8%);
+  --shadow-floating: 0 24px 80px rgb(25 31 40 / 12%);
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-app-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
