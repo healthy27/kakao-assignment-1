@@ -1,0 +1,26 @@
+# --- env / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- backend (Python / FastAPI) ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.db
+*.sqlite
+*.sqlite3
+
+# --- frontend (Next.js / Node) ---
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- misc ---
+.DS_Store
+*.log
+.vercel
